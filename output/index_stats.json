@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "scifact",
+    "device": "cpu",
+    "dim": 0,
+    "docs": 5183,
+    "docs_per_s": 21728.4,
+    "hf_model": "rank_bm25 Okapi k1=0.9 b=0.4",
+    "index_build_s": 0.2,
+    "index_mb": 7.7,
+    "model": "bm25",
+    "params_m": 0.0
+  },
+  {
+    "dataset": "nfcorpus",
+    "device": "cpu",
+    "dim": 0,
+    "docs": 3633,
+    "docs_per_s": 19981.5,
+    "hf_model": "rank_bm25 Okapi k1=0.9 b=0.4",
+    "index_build_s": 0.2,
+    "index_mb": 5.7,
+    "model": "bm25",
+    "params_m": 0.0
+  },
+  {
+    "dataset": "fiqa",
+    "device": "cpu",
+    "dim": 0,
+    "docs": 57638,
+    "docs_per_s": 34120.7,
+    "hf_model": "rank_bm25 Okapi k1=0.9 b=0.4",
+    "index_build_s": 1.7,
+    "index_mb": 49.2,
+    "model": "bm25",
+    "params_m": 0.0
+  }
+]

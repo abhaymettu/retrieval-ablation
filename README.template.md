@@ -102,13 +102,29 @@ Recall@100 is a hard ceiling on any k=100 reranked system.
 | nfcorpus | {{calc.nfcorpus.bm25_recall100|.4f}} | {{calc.nfcorpus.first_stage_recall100|.4f}} | {{calc.nfcorpus.first_stage_recall100|.4f}} |
 | fiqa | {{calc.fiqa.bm25_recall100|.4f}} | {{calc.fiqa.first_stage_recall100|.4f}} | {{calc.fiqa.first_stage_recall100|.4f}} |
 
-nfcorpus is the instructive one. Its Recall@100 of
-{{calc.nfcorpus.first_stage_recall100|.3f}} is not a failure of retrieval, it is
-arithmetic: nfcorpus judges about
+nfcorpus is the instructive one, and it is worth being careful about *why* its
+ceiling is low, because the obvious explanation is wrong. nfcorpus judges about
 {{audit.nfcorpus.splits.test.positives_per_query_mean}} documents relevant per
-query, so 100 slots cannot hold them. Any effort spent reranking on nfcorpus is
-spent on a candidate set that structurally cannot contain most of the answers,
-and deepening k is the intervention that would matter, not reordering.
+query on average, which invites the conclusion that 100 slots simply cannot hold
+them. They can. The median query has far fewer, and only
+{{results.nfcorpus.test.queries_with_over_100_positives}} of
+{{results.nfcorpus.test.queries}} nfcorpus queries have more than 100 positives,
+so the cutoff alone caps Recall@100 at
+{{results.nfcorpus.test.recall100_cap_from_cutoff|.4f}}, not at
+{{calc.nfcorpus.first_stage_recall100|.4f}}.
+
+The gap between those two numbers is the real finding: nearly all of nfcorpus's
+missing recall is the retriever genuinely failing to find judged documents, not
+an artifact of the cutoff. So on nfcorpus the intervention that would pay is a
+better or deeper *first stage*, not a reranker, and not merely a larger k. A
+reranker at k=100 there is polishing a candidate set that is missing about two
+thirds of the answers for reasons no amount of reordering can reach.
+
+For comparison, the cutoff caps Recall@100 at
+{{results.scifact.test.recall100_cap_from_cutoff|.4f}} on scifact and
+{{results.fiqa.test.recall100_cap_from_cutoff|.4f}} on fiqa, so on those two
+datasets the cutoff is not binding at all and Recall@100 is a clean measure of
+first stage quality.
 
 ## Datasets
 
@@ -193,11 +209,25 @@ Per stage, p50 / p95 milliseconds:
 
 {{table.stages}}
 
-`encode_*_isolated` is the same query encoding measured with no search
-interleaved. On fiqa the two differ by more than 2x, because brute force search
-over a 177 MB embedding matrix competes for memory bandwidth with the encoder on
-unified memory. Composed system totals are unaffected, since a real query pays
-both costs regardless; only the stage by stage attribution is. `hybrid-rrf` and
+**Latency figures move between runs, quality figures do not.** Rerunning `make
+all` on the same machine reproduces every nDCG, recall and interval in this
+README bit for bit, and re-measures every millisecond. Across two such runs the
+fiqa cross encoder p95 ratio came out at 2.6x and 5.3x, because a p95 over 200
+queries on a laptop with background scheduling is a noisy statistic. Read the
+latency ratios as one significant figure and the orderings as solid. The
+quality comparisons carry bootstrap intervals; the latency numbers carry no
+interval at all, which is a real asymmetry in this repo.
+
+**Treat the stage rows as indicative and the system totals as the measurement.**
+Stages here are not cleanly separable: the encoder and the brute force search
+share memory bandwidth on unified memory, and GPU dispatch is asynchronous, so
+some of one stage's cost lands in whichever timer runs next. An attempt to
+quantify that by timing encoding with no search interleaved produced results no
+mechanism here explains, and was removed rather than published; see
+LIMITATIONS.md. Composed system totals do not depend on the split, since a real
+query pays every stage regardless, and those are what the verdict rests on.
+
+`hybrid-rrf` and
 `hybrid-blend` are given the same latency, because they do the same work and the
 fusion arithmetic differs between them by far less than the measurement noise.
 
@@ -247,9 +277,10 @@ The mode definitions, in full:
 The clearest single demonstration in the repo is a pair of scifact queries not
 shown above: `128` "Arterioles have a larger lumen diameter than venules" and
 `1362` "Venules have a larger lumen diameter than arterioles". They are exact
-logical opposites, they share the same judged document, and the dense retriever
-returns the same ranking for both. An embedding of a claim and an embedding of
-its negation are near neighbours, which is fine for topic matching and fatal for
+logical opposites, they are judged against the same single document
+(`8290953`), and the bge retriever returns 9 of the same 10 documents for both,
+differing only in their order. An embedding of a claim and an embedding of its
+negation are near neighbours, which is fine for topic matching and fatal for
 claim verification.
 
 ### nfcorpus examples
@@ -260,7 +291,11 @@ claim verification.
 
 {{table.examples_fiqa}}
 
-fiqa's failures are almost entirely the label sparsity mode: with about
+fiqa's *failures* are almost entirely the label sparsity mode. The table above
+mixes two buckets, so the 63% there understates it: within the 20 sampled
+queries that scored nDCG@10 of zero, 19 are `unjudged-equivalent`. The
+`rare-term-anchor` share comes from the other bucket, the BM25 wins, which were
+sampled deliberately and are not failures of the stack at all. With about
 {{audit.fiqa.splits.test.positives_per_query_mean}} judged positives per query
 over {{audit.fiqa.corpus_docs}} documents, a community QA corpus contains many
 answers as good as the judged one. The measured nDCG@10 of
@@ -276,9 +311,12 @@ make analysis           # every number in this README, offline, from cached arti
 make test               # the test suite
 ```
 
-`make all` from cold downloads roughly 60k documents of BEIR, builds six dense
-indexes and two BM25 indexes, scores about 1.7M query document pairs with a
-cross encoder, and takes a bit over an hour on the machine named above. The
+`make all` from cold downloads about 66k documents of BEIR, builds six dense
+indexes and three BM25 indexes, scores {{rerank_pairs}} query document pairs
+with a cross encoder, and takes a bit over an hour on the machine named above.
+Deduplicating pairs across the five first stages is what keeps that last number
+down: scoring each first stage separately would have been several times more.
+The
 dominant single step is embedding fiqa with bge-base. Once cached, `make
 analysis` takes under two minutes and touches the network never.
 

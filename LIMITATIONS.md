@@ -36,6 +36,14 @@ the latency numbers the way there is on the quality numbers. Percentiles are
 over queries within one run, which captures query to query variation and not
 run to run variation.
 
+That omission matters more than it sounds. Rerunning `make all` on the same
+machine reproduces every quality number bit for bit and re-measures every
+timing, and across two such runs the fiqa cross encoder p95 ratio came out at
+2.6x and at 5.3x. A p95 over 200 queries on a laptop is noisy. **Read every
+latency ratio in this repo as one significant figure.** The orderings are
+stable across runs; the precise multipliers are not. Repeating the timing pass
+several times and reporting an interval would fix this and has not been done.
+
 Two measurement artifacts were found and fixed while building this, which is
 the reason to distrust any latency number that was not chased at least this
 far. Both would have shipped wrong numbers:
@@ -49,14 +57,23 @@ far. Both would have shipped wrong numbers:
    as *slower* than the 110M one. Both models are now timed inside one loop
    over queries, alternating, which recovers the expected ordering.
 
-A third artifact was found and **not** fixed, because it cannot be: on fiqa,
-query encoding measures about 2.6x slower when brute force search over the
-177 MB embedding matrix is interleaved with it than when it runs alone, since
-the two compete for memory bandwidth on unified memory. Both numbers are
-recorded, as `encode_*` and `encode_*_isolated`. The composed per system
-totals are unaffected, because a real query pays for both stages either way.
-Only the stage by stage attribution is affected: on fiqa some of what the
-table charges to encoding properly belongs to search.
+A third problem was found and **not** solved, so the affected measurement was
+removed instead of shipped. The stages of a query are not cleanly separable on
+this hardware: the encoder and the brute force search compete for memory
+bandwidth on unified memory, and GPU dispatch is asynchronous, so part of one
+stage's cost surfaces in whichever timer runs next. A standalone experiment
+showed query encoding on fiqa at 14.8 ms alone against 39.1 ms with search
+interleaved, which is the effect. But the same comparison run inside the
+pipeline reported the isolated encode as up to 4x *slower* than the interleaved
+one on two of three datasets, which no mechanism here explains. Rather than
+publish a number with a confident but unverified story attached, the isolated
+measurement was deleted.
+
+The consequence for a reader: **the per stage table is indicative, the per
+system totals are the measurement.** System totals are timed end to end per
+query and do not depend on how the cost is attributed between stages, so every
+comparison the README draws is unaffected. Do not use the stage rows to argue
+about the cost of one component in isolation.
 
 ## Dollars are a model, not a measurement
 

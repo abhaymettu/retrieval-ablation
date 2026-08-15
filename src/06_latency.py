@@ -89,23 +89,13 @@ def measure(dataset, tuning, models, reranker):
         stage[f"encode_{m}"] = enc[m]
         stage[f"search_{m}"] = search[m]
 
-    # The same encoding, with no search interleaved. On the largest corpus the
-    # two differ by about 2.6x: brute force search over a 177 MB matrix competes
-    # for memory bandwidth with the encoder on unified memory, and part of that
-    # cost lands in whichever timer runs next. The composed system totals are
-    # unaffected, since they pay for both regardless. Only the stage by stage
-    # split is affected, so both versions are recorded and the report says so.
-    iso = {m: [] for m in EMBED_MODELS}
-    for i, qid in enumerate(qids):
-        for m, spec in EMBED_MODELS.items():   # alternating, for the same reason
-            t0 = time.perf_counter()
-            models[m].encode([spec["query_prefix"] + queries[qid]],
-                             normalize_embeddings=True, convert_to_numpy=True,
-                             show_progress_bar=False)
-            if i >= WARMUP:
-                iso[m].append(time.perf_counter() - t0)
-    for m in EMBED_MODELS:
-        stage[f"encode_{m}_isolated"] = iso[m]
+    # An attempt to also time query encoding with no search interleaved, to put
+    # a number on how much the stage split is distorted by the two competing for
+    # memory bandwidth, was removed: it reported the isolated encode as up to 4x
+    # slower than the interleaved one on two of three datasets, which is not a
+    # result any mechanism here explains. The stage rows below are therefore
+    # indicative. The composed per system totals are what this repo relies on,
+    # and those are measured end to end per query.
 
     # Fusion overhead on real top-1000 lists
     best_dense = tuning["best_dense"]

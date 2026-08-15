@@ -4,9 +4,11 @@ The template holds the prose. Every number in it is a {{dotted.path}} into the
 generated JSON, so a number that is not reproducible is a number that cannot be
 written. An unresolved placeholder is a hard error, not a blank.
 """
+import gzip
+import json
 import re
 
-from config import DATASETS, OUTPUT, ROOT
+from config import CACHE, DATASETS, OUTPUT, ROOT
 from lib import best_system_on_dev, load_json
 
 PLACEHOLDER = re.compile(r"\{\{([^{}]+)\}\}")
@@ -259,7 +261,16 @@ def build_context():
             "labelled": failures["datasets"][ds]["labelled"],
         }
 
+    # Counted from the cache rather than from the throughput log, so a resumed
+    # rerank pass cannot make this undercount.
+    pairs = 0
+    for ds in DATASETS:
+        for split in ["dev", "test"]:
+            with gzip.open(CACHE / f"{ds}.{split}.rerank.json.gz", "rt") as fh:
+                pairs += sum(len(v) for v in json.load(fh).values())
+
     return {
+        "rerank_pairs": f"{pairs:,}",
         "audit": {a["dataset"]: a for a in audit},
         "results": results,
         "latency": latency,

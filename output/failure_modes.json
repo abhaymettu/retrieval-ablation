@@ -1,0 +1,857 @@
+{
+  "datasets": {
+    "fiqa": {
+      "best_system": "hybrid-blend",
+      "counts": {
+        "near-miss-entity": 1,
+        "rare-term-anchor": 10,
+        "unjudged-equivalent": 19
+      },
+      "examples": {
+        "near-miss-entity": [
+          {
+            "gold_snippet": "How does compounding of annual interest work? answers this question. It's not simple compound interest. It's a time value of money calculation similar to mortgage calculations. Only the cash flow is the other way, a 'dep",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1090",
+            "query": "Need a formula to determine monthly payments received at time t if I'm reinvesting my returns",
+            "top1_snippet": "The formula for determining the number of payments (months) you'll need to make on your loan is:  where i=monthly interest rate (annual rate / 12), A=loan amount (principal), and P=monthly payment. To determine the total"
+          }
+        ],
+        "rare-term-anchor": [
+          {
+            "gold_snippet": "\"EBITDA is in my opinion not a useful measure for an investor looking to buy shares on the stock market. It is more useful for private businesses open to changing their structuring, or looking to sell significant parts o",
+            "ndcg_best": 0.3562,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.0,
+            "qid": "1469",
+            "query": "Why do some companies report how well their EBITDA performed even if their overall net profit did equally well?",
+            "top1_snippet": "Greetings r/finance!! I have a question regarding EBIT and the company that I work for.   The steel company I work for reported they made a profit of $1.3 billion profit. Here's the link with some more numbers:  http://w"
+          },
+          {
+            "gold_snippet": "\"Warren Buffett: 'Investing Advice For You--And My Wife' (And Other Quotes Of The Week): What I advise here is essentially identical to certain instructions   I\u2019ve laid out in my will. One bequest provides that cash will",
+            "ndcg_best": 0.3869,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.0,
+            "qid": "1832",
+            "query": "Warren Buffett and Charles Munger advice for small investors?",
+            "top1_snippet": "I agree with @STATMATT.  Financial statements are the only thing that Warren Buffett & Charlie Munger read. To answer your question though, really depends on what type of investor you are and what information are you try"
+          },
+          {
+            "gold_snippet": "They believe that it reduces the risk that Revenue Canada will deem you to be an employee and make them pay a whole pile of tax, EI, CPP and so on that should have been paid if you had been hired as an employee. It's my ",
+            "ndcg_best": 0.5,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.0,
+            "qid": "3357",
+            "query": "Why big clients want the contractor to be incorporated before giving them work",
+            "top1_snippet": "It is, even when we were bidding major projects we could pretty much guess who was going to get the contract before hand. We only put bids in on the ones we might not win because often times the major project would get b"
+          },
+          {
+            "gold_snippet": "\"Yes, in my humble opinion, it can be \"\"safe\"\" to assume that \u2014 but not in the sense that your assumption is necessarily or likely correct. Rather, it can be \"\"safe\"\" in the respect that assuming the worst \u2014 even if wron",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.0,
+            "qid": "4968",
+            "query": "Reasons behind a large price movement of a penny stock without any recent news releases?",
+            "top1_snippet": "Besides overnight news events and auction mechanisms there is a more fundamental reason the price of a stock is always moving.  Theoretically the stock price will move slightly even in the unlikely scenario that absolute"
+          },
+          {
+            "gold_snippet": "\"1) When it says \"\"an investment or mutual fund\"\", is a mutual fund not   an investment? If no, what is the definition of an investment? A mutual fund is indeed an investment. The article probably mentions  mutual funds ",
+            "ndcg_best": 0.3562,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.2891,
+            "qid": "9385",
+            "query": "Meaning of reinvestment",
+            "top1_snippet": "I think Wikipedia offers a very good explanation: A dividend reinvestment program or dividend reinvestment plan (DRIP) is an equity investment option offered directly from the underlying company. The investor does not re"
+          },
+          {
+            "gold_snippet": "Risk is reduced but isn't zero The default risk is still there, the issuer can go bankrupt, and you can still loose all or some of your money if restructuring happens. If the bond has a callable option, the issuer can re",
+            "ndcg_best": 1.0,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.3562,
+            "qid": "4447",
+            "query": "Should I always hold short term bonds till maturity?",
+            "top1_snippet": "Risk is reduced but isn't zero The default risk is still there, the issuer can go bankrupt, and you can still loose all or some of your money if restructuring happens. If the bond has a callable option, the issuer can re"
+          },
+          {
+            "gold_snippet": "\"Using the Transfer category is the best place to put these categories, as that accurately reflects what the transaction is. If you have your credit card and bank account linked in Mint, the debit and credit to both acco",
+            "ndcg_best": 0.6309,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.3562,
+            "qid": "691",
+            "query": "How to categorize credit card payments?",
+            "top1_snippet": "At least in the US, many credit card companies offer statements that categorize your spending on that card and break it down by different categories depending on the merchant category code.   Having different cards for e"
+          },
+          {
+            "gold_snippet": "\"Rob - I'm sorry your first visit here has been unpleasant.  What you are asking for is beyond the capability of most software. If you look at Fairmark.com, you find the standard deduction for married filing joint is $12",
+            "ndcg_best": 0.5,
+            "ndcg_bm25": 0.6309,
+            "ndcg_dense": 0.0,
+            "qid": "2154",
+            "query": "What tax software automatically determines the best filing status, etc?",
+            "top1_snippet": "Unfortunately, if your taxes are too complicated for the 1040EZ form, then your tax situation is effectively unique and you need to try both options and see for yourself which one is better. If you do your taxes yourself"
+          },
+          {
+            "gold_snippet": "Technically you owe 'self-employment' taxes not FICA taxes because they are imposed under a different law, SECA. However, since SE taxes are by design exactly the same rates as combining the two halves of FICA (employer ",
+            "ndcg_best": 0.3562,
+            "ndcg_bm25": 0.6309,
+            "ndcg_dense": 0.0,
+            "qid": "3039",
+            "query": "Can increasing my tax withholding from my full-time job cover FICA taxes for my freelance work?",
+            "top1_snippet": "The W4 specifies withholding for income taxes, FICA taxes are not impacted. The tax withholding is do that you do not need to make estimated tax payments. Failing to make sufficient quarterly estimated tax payments or wi"
+          },
+          {
+            "gold_snippet": "Vesting As you may know a stock option is the right to acquire a given amount of stock at a given price.  Actually acquiring the stock is referred to as exercising the option.  Your company is offering you options over 2",
+            "ndcg_best": 0.5,
+            "ndcg_bm25": 0.6309,
+            "ndcg_dense": 0.0,
+            "qid": "5085",
+            "query": "What is vested stock and yearly dividends?",
+            "top1_snippet": "This should all be covered in your stock grant documentation, or the employee stock program of which your grant is a part.   Find those docs and it should specify how or when you can sale your shares, and how the money i"
+          }
+        ],
+        "unjudged-equivalent": [
+          {
+            "gold_snippet": "I won't be able to model stock prices using this information.  The pros aren't likely to use Google as much. Even the casual investor is likely to have his own habits. For example, I've come to like how Yahoo permits me ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.2891,
+            "qid": "10039",
+            "query": "Do individual investors use Google to obtain stock quotes?",
+            "top1_snippet": "Yup. What I wanted to know was where they are pulling it up from. Have casually used Google finance for personal investments, but they suck at corp actions. Not sure if they provide free APIs, but that would probably suc"
+          },
+          {
+            "gold_snippet": "For margin, it is correct that these rules do not apply.  The real problem becomes day trading funding when one is just starting out, broker specific minimums. Options settle in T+1. One thing to note: if Canada is anyth",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "10246",
+            "query": "Understanding the T + 3 settlement days rule",
+            "top1_snippet": "During the settlement period, the buyer transfers payment to the seller and the seller transfers ownership to the buyer. This is really a holdover from the days when so much of stock trading was done by individual human "
+          },
+          {
+            "gold_snippet": "How would gold have protected you during the 2007/8 crisis?  In no way, shape or form. The ways to protect yourself at any time are: Boring, huh?",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "10267",
+            "query": "How should I prepare for the next financial crisis?",
+            "top1_snippet": "I'd like to provide ideas other than gold, stocks, property, bonds on how to prepare for a severe crisis. My suggestions below may even make your life more happy now."
+          },
+          {
+            "gold_snippet": "You aren't in trouble yet, but you are certainly on a trajectory to be later. The longer you wait the more painful it will be because you won't have the benefit of time for your money to grow. You may think you will have",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "10462",
+            "query": "Is it okay to be married, 30 years old and have no retirement?",
+            "top1_snippet": "I'd try to (gently) point out to your husband that what he thinks he wants to do now and what he might want to do in 20 or 30 years are not necessarily the same thing. When I was 40 I was thinking that I would work until"
+          },
+          {
+            "gold_snippet": "Many would recommend lump sum investing because of the interest gains, and general upward historical trend of the market.  After introducing DCA in A Random Walk Down Wall Street, Malkiel says the following: But remember",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "10482",
+            "query": "Rollover into bond fund to do dollar cost averaging [duplicate]",
+            "top1_snippet": "That doesn't sound like dollar cost averaging. That sounds like a form of day trading. Dollar cost averaging is how most people add money to their 401K, or how they add money to some IRA accounts. You are proposing a for"
+          },
+          {
+            "gold_snippet": "There is no one answer to this question, but there are some generalities. Most exchanges make a distinction between the passive and the aggressive sides of a trade.  The passive participant is the order that was resting ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "10547",
+            "query": "How much do brokerages pay exchanges per trade?",
+            "top1_snippet": "\"Before the prevalence of electronic trading, trading stocks was very costly, dropping from ~15c in the late 1970s to less than a nickel per share today.  Exchange fees for liquidity takers are ~0.3c per share, currently"
+          },
+          {
+            "gold_snippet": "JoeTapayer has good advice here. I would like to add my notes. If they give a 50% match that means you are getting a 50% return on investment(ROI) immediately. I do not know of a way to get a better guaranteed ROI. Next,",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.098,
+            "qid": "10827",
+            "query": "How much should I be contributing to my 401k given my employer's contribution?",
+            "top1_snippet": "\"Your contribution limit to a 401(k) is $18,000.  Your employer is allowed to contribute to your 401(k), usually a \"\"matching contribution\"\".  That matching contribution comes from your employer, so is not subject to you"
+          },
+          {
+            "gold_snippet": "You're not missing anything. Consumer protection in the US is very basic and limited, if at all. So if someone claims you owe them something, it would be really hard for you to prove otherwise unless you actually drag th",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1085",
+            "query": "How do disputed debts work on credit reports?",
+            "top1_snippet": "\"The debt collection agency needs to see a copy of the notice from the bank that the $300 charge is a disputed and fraudulent charge. Also require them to provide proof. To reduce your stress, you should contact a lawyer"
+          },
+          {
+            "gold_snippet": "\"Unless you are buying a significant value of your goods in USD then the relative strength of USD versus your local currency will have little to no effect on what the value of your investments is worth to you. In fact on",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "10912",
+            "query": "Forex independent investments",
+            "top1_snippet": "\"This is an old post I feel requires some more love for completeness.  Though several responses have mentioned the inherent risks that currency speculation, leverage, and frequent trading of stocks or currencies bring ab"
+          },
+          {
+            "gold_snippet": "\"From the way you frame the question it sounds like you more or less know the answer already. Yes - you can make a non-deductable contribution to a traditional IRA and convert it to a Roth IRA. Here is Wikipedia's explan",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "10975",
+            "query": "How to contribute to Roth IRA when income is at the maximum limit & you have employer-sponsored 401k plans?",
+            "top1_snippet": "if you have a work-sponsored retirement plan  A 401k plan counts as a work-sponsored retirement plan. If you are a highly compensated employee (this is $115,000 for 2012), even your 401k contributions are limited.  Given"
+          },
+          {
+            "gold_snippet": "Fantastic question to be asking at the age of 22! A very wise man suggested to me the following with regard to your net income I've purposely not included saving a sum of money for a house deposit, as this is very much c",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1150",
+            "query": "How are the best way to make and save money at 22 years old",
+            "top1_snippet": "As a 22 year old planning for your financial life, it is obvious to say that saving as much as you can to invest for the long run is the smartest thing to do from a financial point of view.  In general, at this point, ag"
+          },
+          {
+            "gold_snippet": "If this will be your sole income for the year, going self-employed is the best way to do this: So, here's how to go at it: Total cash in: \u00a32000 Total Tax paid: \u00a30 Admin overhead: approx 3 hours. Legit: 100%   :) Edit:  C",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1159",
+            "query": "what is the best way to do a freelancing job over the summer for a student",
+            "top1_snippet": "\"Awesome news! Securing one for this last year will really help your case.  That way you can put the extracurricular stuff you've outlined above as well as the two internships.  Network like crazy. The sad reality is wit"
+          },
+          {
+            "gold_snippet": "Just browsed their website. Not a single name of anybody involved. Their application process isn't safe(No https usage while transferring private information).  And considering they contacted you rather than you contacti",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1306",
+            "query": "I made an investment with a company that contacted me, was it safe?",
+            "top1_snippet": "\"Yes, in my humble opinion, it can be \"\"safe\"\" to assume that \u2014 but not in the sense that your assumption is necessarily or likely correct. Rather, it can be \"\"safe\"\" in the respect that assuming the worst \u2014 even if wron"
+          },
+          {
+            "gold_snippet": "This doesn't make any sense. For the people who ask you this, suggest that they borrow the money to invest with you. They can use their bitcoins as collateral for the loan. That way, they get the same benefit and your co",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1310",
+            "query": "Is is possible to take a mortgage using Bitcoin as collateral?",
+            "top1_snippet": "\"As a legal contract, a mortgage is a form of secured debt. In the case of a mortgage, the debt is secured using the property asset as collateral. So \"\"no\"\", there is no such thing as a mortgage contract without a proper"
+          },
+          {
+            "gold_snippet": "Assets with zero value, perhaps. Unless you can prove that they have resale value. Good luck with that. In other words, not worth spending time on.",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1321",
+            "query": "Are social media accounts (e.g. YouTube, Twitter, Instagram, etc.) considered assets?",
+            "top1_snippet": "In an accounting position, a domain name would fall under an intangible asset. Copyrights and patents are intangible, while tangible assets would be buildings or land (also known as property, plant, and equipment).  Noti"
+          },
+          {
+            "gold_snippet": "As per the Canada-U.S. Tax Treaty (the \u201cTreaty\u201d), a U.S. corporation carrying on business in Canada is only subject to taxation on income earned in Canada through a fixed place of business or permanent establishment. The",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1416",
+            "query": "US resident with Canadian income via T4A-NR",
+            "top1_snippet": "\"What do you mean by \"\"Canadian income\"\"? Was it income paid to you as wages for the job you did in the US? Or rental/interest income in Canada? If the former - then it doesn't go to NEC, it goes to the main part of the "
+          },
+          {
+            "gold_snippet": "If you have income in the US, you will owe US income tax on it, unless there is a treaty with your country that says otherwise.",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1783",
+            "query": "Freelancing Tax implication",
+            "top1_snippet": "From tax perspective, any income you earn for services performed while you're in the US is US-sourced. The location of the person paying you is of no consequence. From immigration law perspective, you cannot work for any"
+          },
+          {
+            "gold_snippet": "As a new (very!) small business, the IRS has lots of advice and information for you. Start at https://www.irs.gov/businesses/small-businesses-self-employed and be sure you have several pots of coffee or other appropriate",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1889",
+            "query": "Reporting financial gains from my online store",
+            "top1_snippet": "\"-Alain Wertheimer I'm a hobbyist... Most (probably all) of those older items were sold both prior to my establishing the LLC This is a hobby of yours, this is not your business. You purchased all of these goods for your"
+          },
+          {
+            "gold_snippet": "Assuming here that you're talking about deducting your tuition as a below the line deduction as a business expense or similar, then it depends. Per 1.162-5, if the education: Then it qualifies as a legitimate business ex",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1920",
+            "query": "Clarification on student expenses - To file the tax for the next year",
+            "top1_snippet": "I'm guessing you're asking about the US. Please add a location tag to your question.  Unfortunately you cannot claim expenses paid for someone other than yourself or your dependents. In IRS publication 970, that deals wi"
+          }
+        ]
+      },
+      "labelled": 30,
+      "share": {
+        "near-miss-entity": 3.3,
+        "rare-term-anchor": 33.3,
+        "unjudged-equivalent": 63.3
+      },
+      "total_queries": 648,
+      "total_zero_ndcg": 193
+    },
+    "nfcorpus": {
+      "best_system": "hybrid-blend",
+      "counts": {
+        "label-provenance": 16,
+        "rare-term-anchor": 9,
+        "underspecified-query": 4
+      },
+      "examples": {
+        "label-provenance": [
+          {
+            "gold_snippet": "Cytotoxic response of breast cancer cell lines, MCF 7 and T 47 D to triphala and its modification by antioxidants. The cytotoxic effects of Triphala (TPL), an Indian Ayurvedic formulation with known anti-cancer propertie",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1008",
+            "query": "deafness",
+            "top1_snippet": "Sensitive skin in the American population: prevalence, clinical data, and role of the dermatologist. INTRODUCTION: Sensitive skin is a complex dermatological condition, defined by abnormal sensory symptoms. The aim of th"
+          },
+          {
+            "gold_snippet": "Facing the facelessness of public health: what's the public got to do with it? Despite compelling statistics that show we could eliminate 80%of all heart disease and strokes, 90% of all diabetes, and 60% of all cancers w",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0636,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1050",
+            "query": "Dr. Dean Ornish",
+            "top1_snippet": "Managing medical mistakes: ideology, insularity and accountability among internists-in-training. By the end of graduate medical training, novice internists (collectively known as the housestaff) were initiated into the e"
+          },
+          {
+            "gold_snippet": "Coconut oil predicts a beneficial lipid profile in pre-menopausal women in the Philippines Coconut oil is a common edible oil in many countries, and there is mixed evidence for its effects on lipid profiles and cardiovas",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1066",
+            "query": "Dr. Walter Willett",
+            "top1_snippet": "Towards a new system of health: the challenge of Western disease. Over the last three decades, the concept of Western disease has become well established. Medicine has approached this group of diseases by searching for n"
+          },
+          {
+            "gold_snippet": "Toxicology of nutmeg abuse. BACKGROUND: Unpleasant and frightening side effects associated with the abuse of nutmeg occasionally generate emergency department referrals. We report a young patient's first-time experience ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1098",
+            "query": "eggnog",
+            "top1_snippet": "Egg consumption and endothelial function: a randomized controlled crossover trial. BACKGROUND: Because of egg cholesterol content, reduction in egg consumption is generally recommended to reduce risk of cardiovascular di"
+          },
+          {
+            "gold_snippet": "Intestinal microbiota metabolism of L-carnitine, a nutrient in red meat, promotes atherosclerosis Intestinal microbiota metabolism of choline/phosphatidylcholine produces trimethylamine (TMA), which is further metabolize",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1119",
+            "query": "energy drinks",
+            "top1_snippet": "Detrimental effects of energy drink consumption on platelet and endothelial function. BACKGROUND: Energy drink consumption has been anecdotally linked with sudden cardiac death and, more recently, myocardial infarction. "
+          },
+          {
+            "gold_snippet": "Beneficial effects of L-arginine on reducing obesity: potential mechanisms and important implications for human health. Over the past 20 years, growing interest in the biochemistry, nutrition, and pharmacology of L-argin",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1161",
+            "query": "fava beans",
+            "top1_snippet": "In vitro investigations of the potential health benefits of Australian-grown faba beans (Vicia faba L.): chemopreventative capacity and inhibitory ... The functional properties, including antioxidant and chemopreventativ"
+          },
+          {
+            "gold_snippet": "The role of phytic acid in legumes: antinutrient or beneficial function? This review describes the present state of knowledge about phytic acid (phytate), which is often present in legume seeds. The antinutritional effec",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1214",
+            "query": "Fosamax",
+            "top1_snippet": "A program consisting of a phytonutrient-rich medical food and an elimination diet ameliorated fibromyalgia symptoms and promoted toxic-element deto... BACKGROUND: An effective treatment for fibromyalgia (FM) has yet to b"
+          },
+          {
+            "gold_snippet": "Polybrominated diphenyl ethers in U.S. Meat and poultry from two statistically designed surveys showing trends and levels from 2002 to 2008. Polybrominated diphenyl ether (PBDE) body burdens in the general U.S. populatio",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1309",
+            "query": "halibut",
+            "top1_snippet": "Occurrence of pharmaceuticals and personal care products in fish: results of a national pilot study in the United States. Pharmaceuticals and personal care products are being increasingly reported in a variety of biologi"
+          },
+          {
+            "gold_snippet": "The Etiological Significance of Related Diseases If disease patterns emerge which show that certain diseases can be related, this is a valuable pointer to a common cause. This article traces the principle of interpreting",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1353",
+            "query": "hernia",
+            "top1_snippet": "Prevalence of diverticular disease, hiatus hernia, and pelvic phleboliths in black and white Americans. Phleboliths, and especially diverticular disease and hiatus hernia, are rarer in developing countries than in econom"
+          },
+          {
+            "gold_snippet": "Multivitamin-multimineral supplementation and mortality: a meta-analysis of randomized controlled trials. BACKGROUND: Multivitamins are the most commonly used supplement in the developed world. Recent epidemiologic findi",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1429",
+            "query": "Iowa Women\u2019s Health Study",
+            "top1_snippet": "Alcohol consumption and breast cancer risk in the Women's Health Study. The authors assessed the association between moderate alcohol consumption and breast cancer risk in the Women's Health Study (United States, 1992-20"
+          },
+          {
+            "gold_snippet": "p-Nonyl-phenol: an estrogenic xenobiotic released from \"modified\" polystyrene. Alkylphenols are widely used as plastic additives and surfactants. We report the identification of an alkylphenol, nonylphenol, as an estroge",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1485",
+            "query": "lard",
+            "top1_snippet": "Effect of a very-high-fiber vegetable, fruit, and nut diet on serum lipids and colonic function. We tested the effects of feeding a diet very high in fiber from fruit and vegetables. The levels fed were those, which had "
+          },
+          {
+            "gold_snippet": "Jam processing and storage effects on blueberry polyphenolics and antioxidant capacity. Fresh blueberries were processed into sugar and sugar-free jams and stored for 6 months at 4 and 25 degrees C. The jams were analyze",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1496",
+            "query": "leeks",
+            "top1_snippet": "Phytoestrogen consumption and association with breast, prostate and colorectal cancer in EPIC Norfolk. Phytoestrogens are polyphenolic secondary plant metabolites that have structural and functional similarities to 17bet"
+          },
+          {
+            "gold_snippet": "Simulated impact of a fish based shift in the population n--3 fatty acids intake on exposure to dioxins and dioxin-like compounds. Due to the favourable health effects of LC n-3 PUFAs, marine products have been recognise",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1516",
+            "query": "Lindane",
+            "top1_snippet": "Organochlorine pesticides in umbilical cord blood serum of women from Southern Spain and adherence to the Mediterranean diet. Exposure of pregnant women to organochlorine (OC) pesticides largely derives from contaminated"
+          },
+          {
+            "gold_snippet": "Comparison of the cytotoxic and mutagenic potential of liquid smoke food flavourings, cigarette smoke condensate and wood smoke condensate. Although products of pyrolysis are often cytotoxic and mutagenic, the relationsh",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1611",
+            "query": "mesquite",
+            "top1_snippet": "Toxicology of nutmeg abuse. BACKGROUND: Unpleasant and frightening side effects associated with the abuse of nutmeg occasionally generate emergency department referrals. We report a young patient's first-time experience "
+          },
+          {
+            "gold_snippet": "Effects of kiwifruit consumption on serum lipid profiles and antioxidative status in hyperlipidemic subjects. Cardiovascular disease (CVD) is the most important adult health problem in the world. Epidemiological studies ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1621",
+            "query": "Mevacor",
+            "top1_snippet": "Common Household Chemicals and the Allergy Risks in Pre-School Age Children Background The risk of indoor exposure to volatile organic compounds (VOCs) on allergic airway diseases in children remains unknown. Objective W"
+          },
+          {
+            "gold_snippet": "Diet and gallbladder cancer: a case-control study. Cancer of the gallbladder is rare but fatal, and has an unusual geographic and demographic distribution. Gallstones and obesity have been suggested as possible risk fact",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0948,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1656",
+            "query": "mouth cancer",
+            "top1_snippet": "Salivary acetaldehyde increase due to alcohol-containing mouthwash use: a risk factor for oral cancer. Increasing evidence suggests that acetaldehyde, the first and genotoxic metabolite of ethanol, mediates the carcinoge"
+          }
+        ],
+        "rare-term-anchor": [
+          {
+            "gold_snippet": "The cholesterol-lowering effect of coconut flakes in humans with moderately raised serum cholesterol. This study investigated the effect of coconut flakes on serum cholesterol levels of humans with moderately raised seru",
+            "ndcg_best": 0.6105,
+            "ndcg_bm25": 0.8072,
+            "ndcg_dense": 0.3759,
+            "qid": "PLAIN-3342",
+            "query": "Is Coconut Milk Good For You?",
+            "top1_snippet": "The cholesterol-lowering effect of coconut flakes in humans with moderately raised serum cholesterol. This study investigated the effect of coconut flakes on serum cholesterol levels of humans with moderately raised seru"
+          },
+          {
+            "gold_snippet": "Patient expectations on lipid-lowering drugs. OBJECTIVE: The objective of this study was to assess expectations of effect when using statins in a treatment population. Further the aim was to examine factors, including hi",
+            "ndcg_best": 0.305,
+            "ndcg_bm25": 0.5798,
+            "ndcg_dense": 0.1889,
+            "qid": "PLAIN-2490",
+            "query": "The Actual Benefit of Diet vs. Drugs",
+            "top1_snippet": "Comparative effectiveness of exercise and drug interventions on mortality outcomes: metaepidemiological study Objective To determine the comparative effectiveness of exercise versus drug interventions on mortality outcom"
+          },
+          {
+            "gold_snippet": "Multivitamin-multimineral supplementation and mortality: a meta-analysis of randomized controlled trials. BACKGROUND: Multivitamins are the most commonly used supplement in the developed world. Recent epidemiologic findi",
+            "ndcg_best": 0.309,
+            "ndcg_bm25": 0.4593,
+            "ndcg_dense": 0.0911,
+            "qid": "PLAIN-1320",
+            "query": "Harvard Physicians\u2019 Study II",
+            "top1_snippet": "Physicians' health habits are associated with lifestyle counseling for hypertensive patients. BACKGROUND: The Seventh Report of the Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blo"
+          },
+          {
+            "gold_snippet": "Health food stores' recommendations for nausea and migraines during pregnancy. BACKGROUND: Many pregnant women use dietary supplements during pregnancy; however, relatively scant information is available on the safety of",
+            "ndcg_best": 0.2943,
+            "ndcg_bm25": 0.3558,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-2960",
+            "query": "Pharmacists Versus Health Food Store Employees: Who Gives Better Advice?",
+            "top1_snippet": "Health information provided by retail health food outlets. Alternative health practices have become increasingly popular in recent years. Many patients visit specific complementary practitioners, while others attempt to "
+          },
+          {
+            "gold_snippet": "Dietary microparticles and their impact on tolerance and immune responsiveness of the gastrointestinal tract Dietary microparticles are non-biological bacterial-sized particles of the gastrointestinal lumen that occur du",
+            "ndcg_best": 0.4153,
+            "ndcg_bm25": 0.6275,
+            "ndcg_dense": 0.2863,
+            "qid": "PLAIN-196",
+            "query": "Should We Avoid Titanium Dioxide?",
+            "top1_snippet": "Titanium Dioxide Nanoparticles in Food and Personal Care Products Titanium dioxide is a common additive in many food, personal care, and other consumer products used by people, which after use can enter the sewage system"
+          },
+          {
+            "gold_snippet": "Effect of cruciferous vegetable consumption on heterocyclic aromatic amine metabolism in man. The consumption of cooked meat appears to predispose individuals to colonic cancer and heterocyclic aromatic amines (HA), form",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.3407,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-2800",
+            "query": "Prolonged Liver Function Enhancement From Broccoli",
+            "top1_snippet": "Safety, tolerance, and metabolism of broccoli sprout glucosinolates and isothiocyanates: a clinical phase I study. Broccoli sprouts are widely consumed in many parts of the world. There have been no reported concerns wit"
+          },
+          {
+            "gold_snippet": "Tobacco and obesity epidemics: not so different after all? Short abstract Campaigns to promote healthy eating are undermined by the ubiquity of processed, energy dense foods. A global strategy is now needed to tackle the",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.3392,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-2291",
+            "query": "ultra-processed foods",
+            "top1_snippet": "Processed meat and colorectal cancer: a review of epidemiologic and experimental evidence Processed meat intake may be involved in the etiology of colorectal cancer, a major cause of death in affluent countries. The epid"
+          },
+          {
+            "gold_snippet": "Mechanisms of antimicrobial resistance in bacteria. The treatment of bacterial infections is increasingly complicated by the ability of bacteria to develop resistance to antimicrobial agents. Antimicrobial agents are oft",
+            "ndcg_best": 0.6547,
+            "ndcg_bm25": 0.9306,
+            "ndcg_dense": 0.5927,
+            "qid": "PLAIN-1909",
+            "query": "pork",
+            "top1_snippet": "Pork intake and human papillomavirus-related disease. Clinical and ecological evidence supporting an association between human papillomavirus (HPV)-related tumors and dietary factors are presented. Abstinence from high i"
+          },
+          {
+            "gold_snippet": "Cigarette Smoke Toxins Deposited on Surfaces: Implications for Human Health Cigarette smoking remains a significant health threat for smokers and nonsmokers alike. Secondhand smoke (SHS) is intrinsically more toxic than ",
+            "ndcg_best": 0.4857,
+            "ndcg_bm25": 0.6621,
+            "ndcg_dense": 0.3281,
+            "qid": "PLAIN-1721",
+            "query": "NIH-AARP study",
+            "top1_snippet": "Intensity and timing of physical activity in relation to postmenopausal breast cancer risk: the prospective NIH-AARP Diet and Health Study Background Despite strong evidence of an inverse association of physical activity"
+          }
+        ],
+        "underspecified-query": [
+          {
+            "gold_snippet": "Proposal for a dietary \"phytochemical index\". There is ample reason to believe that diets rich in phytochemicals provide protection from vascular diseases and many cancers; direct antioxidant activity as well as modulati",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1028",
+            "query": "dietary scoring",
+            "top1_snippet": "Mediterranean diet and health status: an updated meta-analysis and a proposal for a literature-based adherence score. OBJECTIVE: To update previous meta-analyses of cohort studies that investigated the association betwee"
+          },
+          {
+            "gold_snippet": "Exposure to exogenous estrogen through intake of commercial milk produced from pregnant cows. BACKGROUND: Modern genetically improved dairy cows continue to lactate throughout almost the entire pregnancy. Therefore, rece",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1249",
+            "query": "genetic manipulation",
+            "top1_snippet": "Property rights and genetic engineering: developing nations at risk. Eighty percent of (commercial) genetically engineered seeds (GES) are designed only to resist herbicides. Letting farmers use more chemicals, they cut "
+          },
+          {
+            "gold_snippet": "An evaluation of mercury concentrations in three brands of canned tuna. There is widespread concern over the presence of Hg in fish consumed by humans. While studies have been focused on determining the Hg concentration ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1331",
+            "query": "hearing",
+            "top1_snippet": "Recent fat intake modulates fat taste sensitivity in lean and overweight subjects. OBJECTIVE: To evaluate the effects of a high-fat and low-fat diet on taste sensitivity to oleic acid (C18:1) in lean and overweight/obese"
+          },
+          {
+            "gold_snippet": "The Prevalence of Phosphorus Containing Food Additives in Top Selling Foods in Grocery Stores Objective To determine the prevalence of phosphorus-containing food additives in best selling processed grocery products and t",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.2906,
+            "ndcg_dense": 0.0,
+            "qid": "PLAIN-1374",
+            "query": "hormonal dysfunction",
+            "top1_snippet": "The effect of marjoram (Origanum majorana) tea on the hormonal profile of women with polycystic ovary syndrome: a randomised controlled pilot study. BACKGROUND: In traditional medicine, marjoram herb (Origanum majorana) "
+          }
+        ]
+      },
+      "labelled": 29,
+      "share": {
+        "label-provenance": 55.2,
+        "rare-term-anchor": 31.0,
+        "underspecified-query": 13.8
+      },
+      "total_queries": 323,
+      "total_zero_ndcg": 81
+    },
+    "scifact": {
+      "best_system": "hybrid-blend",
+      "counts": {
+        "label-provenance": 13,
+        "near-miss-entity": 2,
+        "negation-or-polarity": 2,
+        "rare-term-anchor": 5,
+        "unjudged-equivalent": 3
+      },
+      "examples": {
+        "label-provenance": [
+          {
+            "gold_snippet": "New opportunities: the use of nanotechnologies to manipulate and track stem cells. Nanotechnologies are emerging platforms that could be useful in measuring, understanding, and manipulating stem cells. Examples include m",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1",
+            "query": "0-dimensional biomaterials show inductive properties.",
+            "top1_snippet": "Mechanistic Fracture Criteria For The Failure Of Human Cortical Bone A mechanistic understanding of fracture in human bone is critical to predicting fracture risk associated with age and disease. Despite extensive work, "
+          },
+          {
+            "gold_snippet": "Comparative determinants of 4-year cardiovascular event rates in stable outpatients at risk of or with atherothrombosis. CONTEXT Clinicians and trialists have difficulty with identifying which patients are highest risk f",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1199",
+            "query": "The benefits of colchicine were achieved with effective widespread use of secondary prevention strategies such as high-dose statins.",
+            "top1_snippet": "Statins in the primary prevention of cardiovascular disease Statins are widely used in the evidence-based lowering of cardiovascular disease (CVD) risk. The use of these drugs for secondary prevention of CVD is well foun"
+          },
+          {
+            "gold_snippet": "Myeloid-specific Kr\u00fcppel-like factor 2 inactivation increases macrophage and neutrophil adhesion and promotes atherosclerosis. RATIONALE Hemizygous deficiency of the transcription factor Kr\u00fcppel-like factor 2 (KLF2) has ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1213",
+            "query": "The deregulated and prolonged activation of monocytes has deleterious effects in inflammatory diseases.",
+            "top1_snippet": "Local neuroinflammation and the progression of Alzheimer\u2019s disease Postmortem immunohistochemical studies have revealed a state of chronic inflammation limited to lesioned areas of brain in Alzheimer\u2019s disease. Some key "
+          },
+          {
+            "gold_snippet": "Scaffold-based three-dimensional human fibroblast culture provides a structural matrix that supports angiogenesis in infarcted heart tissue. BACKGROUND We have developed techniques to implant angiogenic patches onto the ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.6309,
+            "ndcg_dense": 0.0,
+            "qid": "128",
+            "query": "Arterioles have a larger lumen diameter than venules.",
+            "top1_snippet": "Aortic and large artery compliance in end-stage renal failure. Pulse wave velocity (PWV) was measured in the aorta, right leg and arm of 90 control subjects (CS) and 92 hemodialysis patients (HD) of the same age and mean"
+          },
+          {
+            "gold_snippet": "Cyclooxygenase-Dependent Tumor Growth through Evasion of Immunity The mechanisms by which melanoma and other cancer cells evade anti-tumor immunity remain incompletely understood. Here, we show that the growth of tumors ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "132",
+            "query": "Aspirin inhibits the production of PGE2.",
+            "top1_snippet": "A randomized trial of aspirin to prevent colorectal adenomas in patients with previous colorectal cancer. BACKGROUND Experimental studies in animals and observational studies in humans suggest that regular aspirin use ma"
+          },
+          {
+            "gold_snippet": "Inter-individual variability and genetic influences on cytokine responses to bacteria and fungi Little is known about the inter-individual variation of cytokine responses to different pathogens in healthy individuals. To",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1332",
+            "query": "Tumor necrosis factor alpha (TNF-\u03b1) and interleukin-1 (IL-1) are pro-inflammatory cytokines that inhibit IL-6 and IL-10.",
+            "top1_snippet": "The precursor form of IL-1alpha is an intracrine proinflammatory activator of transcription. Although most cytokines are studied for biological effects after engagement of their specific cell surface membrane receptors, "
+          },
+          {
+            "gold_snippet": "Scaffold-based three-dimensional human fibroblast culture provides a structural matrix that supports angiogenesis in infarcted heart tissue. BACKGROUND We have developed techniques to implant angiogenic patches onto the ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.6309,
+            "ndcg_dense": 0.0,
+            "qid": "1362",
+            "query": "Venules have a larger lumen diameter than arterioles.",
+            "top1_snippet": "Aortic and large artery compliance in end-stage renal failure. Pulse wave velocity (PWV) was measured in the aorta, right leg and arm of 90 control subjects (CS) and 92 hemodialysis patients (HD) of the same age and mean"
+          },
+          {
+            "gold_snippet": "Scaffold-based three-dimensional human fibroblast culture provides a structural matrix that supports angiogenesis in infarcted heart tissue. BACKGROUND We have developed techniques to implant angiogenic patches onto the ",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.0,
+            "qid": "1363",
+            "query": "Venules have a thinner or absent smooth layer compared to arterioles.",
+            "top1_snippet": "Pulmonary vascular lesions in end-stage idiopathic pulmonary fibrosis: Histopathologic study on lung explant specimens and correlations with pulmonary hemodynamics. In patients presenting with idiopathic pulmonary fibros"
+          },
+          {
+            "gold_snippet": "Perceived age as clinically useful biomarker of ageing: cohort study. OBJECTIVE To determine whether perceived age correlates with survival and important age related phenotypes. DESIGN Follow-up study, with survival of t",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "239",
+            "query": "Cellular aging closely links to an older appearance.",
+            "top1_snippet": "The Hallmarks of Aging Aging is characterized by a progressive loss of physiological integrity, leading to impaired function and increased vulnerability to death. This deterioration is the primary risk factor for major h"
+          },
+          {
+            "gold_snippet": "A culture-independent sequence-based metagenomics approach to the investigation of an outbreak of Shiga-toxigenic Escherichia coli O104:H4. IMPORTANCE Identification of the bacterium responsible for an outbreak can aid i",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.6309,
+            "ndcg_dense": 0.0,
+            "qid": "312",
+            "query": "De novo assembly of sequence data has more specific contigs than unassembled sequence data.",
+            "top1_snippet": "Effects of GC Bias in Next-Generation-Sequencing Data on De Novo Genome Assembly Next-generation-sequencing (NGS) has revolutionized the field of genome assembly because of its much higher data throughput and much lower "
+          },
+          {
+            "gold_snippet": "Quantum dots spectrally distinguish multiple species within the tumor milieu in vivo A solid tumor is an organ composed of cancer and host cells embedded in an extracellular matrix and nourished by blood vessels. A prere",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "421",
+            "query": "Flexible molecules experience greater steric hindrance in the tumor microenviroment than rigid molecules.",
+            "top1_snippet": "Microenvironment rigidity modulates responses to the HER2 receptor tyrosine kinase inhibitor lapatinib via YAP and TAZ transcription factors. Stiffness is a biophysical property of the extracellular matrix that modulates"
+          },
+          {
+            "gold_snippet": "Establishment of human iPSC-based models for the study and targeting of glioma initiating cells Glioma tumour-initiating cells (GTICs) can originate upon the transformation of neural progenitor cells (NPCs). Studies on G",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "437",
+            "query": "Functional consequences of genomic alterations due to Myelodysplastic syndrome (MDS) are poorly understood due to the lack of an animal model.",
+            "top1_snippet": "Myelodysplastic syndromes: revisiting the role of the bone marrow microenvironment in disease pathogenesis Myelodysplastic syndromes are a heterogeneous group of diseases characterized by ineffective hematopoiesis and th"
+          },
+          {
+            "gold_snippet": "The HIV Treatment Gap: Estimates of the Financial Resources Needed versus Available for Scale-Up of Antiretroviral Therapy in 97 Countries from 2015 to 2020 BACKGROUND The World Health Organization (WHO) released revised",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "502",
+            "query": "Healthcare delivery efficiency in crowded delivery centers is impaired by improving structural, logistical, and interpersonal elements.",
+            "top1_snippet": "Why people feel crowded: An examination of objective and subjective crowding Prior studies have found only a modest relationship between objective and subjective crowding, defying logic and commonsensical notions of why "
+          }
+        ],
+        "near-miss-entity": [
+          {
+            "gold_snippet": "Immune signaling by RIG-I-like receptors. The RIG-I-like receptors (RLRs) RIG-I, MDA5, and LGP2 play a major role in pathogen sensing of RNA virus infection to initiate and modulate antiviral immunity. The RLRs detect vi",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1175",
+            "query": "The PPR MDA5 has two N-terminal CARD domains.",
+            "top1_snippet": "Role of chicken melanoma differentiation-associated gene 5 in induction and activation of innate and adaptive immune responses to infectious bursal disease virus in cultured macrophages The objective of the present study"
+          },
+          {
+            "gold_snippet": "Immune signaling by RIG-I-like receptors. The RIG-I-like receptors (RLRs) RIG-I, MDA5, and LGP2 play a major role in pathogen sensing of RNA virus infection to initiate and modulate antiviral immunity. The RLRs detect vi",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.301,
+            "ndcg_dense": 0.0,
+            "qid": "1179",
+            "query": "The PRR MDA5 has a central DExD/H RNA helices domain.",
+            "top1_snippet": "Loss of DExD/H box RNA helicase LGP2 manifests disparate antiviral responses. The DExD/H box RNA helicase retinoic acid-inducible gene I (RIG-I) and the melanoma differentiation-associated gene 5 (MDA5) are key intracell"
+          }
+        ],
+        "negation-or-polarity": [
+          {
+            "gold_snippet": "Global, regional, and national comparative risk assessment of 79 behavioural, environmental and occupational, and metabolic risks or clusters of risks, 1990\u20132015: a systematic analysis for the Global Burden of Disease St",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1110",
+            "query": "Suboptimal nutrition is not predictive of chronic disease",
+            "top1_snippet": "Maternal and child undernutrition: consequences for adult health and human capital In this paper we review the associations between maternal and child undernutrition with human capital and risk of adult diseases in low-i"
+          },
+          {
+            "gold_snippet": "LDL-cholesterol concentrations: a genome-wide association study BACKGROUND LDL cholesterol has a causal role in the development of cardiovascular disease. Improved understanding of the biological mechanisms that underlie",
+            "ndcg_best": 0.3155,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.0,
+            "qid": "674",
+            "query": "LDL cholesterol has no involvement in the development of cardiovascular disease.",
+            "top1_snippet": "LDL inhibits the mediation of cholesterol efflux from macrophage foam cells by apoA-I-containing lipoproteins. A putative mechanism for foam cell formation. Although the accumulation of cholesterol in macrophages appears"
+          }
+        ],
+        "rare-term-anchor": [
+          {
+            "gold_snippet": "3D Chromosome Regulatory Landscape of Human Pluripotent Cells. In this study, we describe the 3D chromosome regulatory landscape of human naive and primed embryonic stem cells. To devise this map, we identified transcrip",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.0,
+            "qid": "1024",
+            "query": "Recurrent mutations occur frequently within CTCF anchor sites adjacent to oncogenes.",
+            "top1_snippet": "Repeat instability: mechanisms of dynamic mutations Disease-causing repeat instability is an important and unique form of mutation that is linked to more than 40 neurological, neurodegenerative and neuromuscular disorder"
+          },
+          {
+            "gold_snippet": "Rare Variants Create Synthetic Genome-Wide Associations Genome-wide association studies (GWAS) have now identified at least 2,000 common variants that appear associated with common diseases or related traits (http://www.",
+            "ndcg_best": 0.4307,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.3562,
+            "qid": "3",
+            "query": "1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.",
+            "top1_snippet": "Mosaic PPM1D mutations are associated with predisposition to breast and ovarian cancer Improved sequencing technologies offer unprecedented opportunities for investigating the role of rare genetic variation in common dis"
+          },
+          {
+            "gold_snippet": "Mapping Meiotic Single-Strand DNA Reveals a New Landscape of DNA Double-Strand Breaks in Saccharomyces cerevisiae DNA double-strand breaks (DSBs), which are formed by the Spo11 protein, initiate meiotic recombination. Pr",
+            "ndcg_best": 0.6309,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.4307,
+            "qid": "294",
+            "query": "Crossover hot spots are not found within gene promoters in Saccharomyces cerevisiae.",
+            "top1_snippet": "Crossover and noncrossover pathways in mouse meiosis. During meiosis, recombination between homologous chromosomes generates crossover (CR) and noncrossover (NCR) products. CRs establish connections between homologs, whe"
+          },
+          {
+            "gold_snippet": "\u201cRapid-Impact Interventions\u201d: How a Policy of Integrated Control for Africa's Neglected Tropical Diseases Could Benefit the Poor Over the past two decades there have been significant achievements in the control of a hand",
+            "ndcg_best": 1.0,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.4307,
+            "qid": "660",
+            "query": "Ivermectin is used to treat onchocerciasis.",
+            "top1_snippet": "\u201cRapid-Impact Interventions\u201d: How a Policy of Integrated Control for Africa's Neglected Tropical Diseases Could Benefit the Poor Over the past two decades there have been significant achievements in the control of a hand"
+          },
+          {
+            "gold_snippet": "Cost effectiveness of ward based non-invasive ventilation for acute exacerbations of chronic obstructive pulmonary disease: economic analysis of randomised controlled trial. OBJECTIVE To evaluate the cost effectiveness o",
+            "ndcg_best": 0.5,
+            "ndcg_bm25": 1.0,
+            "ndcg_dense": 0.4307,
+            "qid": "852",
+            "query": "Non-invasive ventilation use should be decreased if there is inadequate response to conventional treatment.",
+            "top1_snippet": "Noninvasive ventilation for treatment of acute respiratory failure in patients undergoing solid organ transplantation: a randomized trial. CONTEXT Noninvasive ventilation (NIV) has been associated with lower rates of end"
+          }
+        ],
+        "unjudged-equivalent": [
+          {
+            "gold_snippet": "Tet1 and Tet2 regulate 5-hydroxymethylcytosine production and cell lineage specification in mouse embryonic stem cells. TET family enzymes convert 5-methylcytosine (5mC) to 5-hydroxymethylcytosine (5hmC) in DNA. Here, we",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1226",
+            "query": "The loss of the TET protein functions may have dire biological consequences, such as myeloid cancers.",
+            "top1_snippet": "The Ten-Eleven Translocation-2 (TET2) gene in hematopoiesis and hematopoietic diseases Ten-Eleven Translocation-2 (TET2) inactivation through loss-of-function mutation, deletion and IDH1/2 (Isocitrate Dehydrogenase 1 and"
+          },
+          {
+            "gold_snippet": "Quantitative assessment of T-cell repertoire recovery after hematopoietic stem cell transplantation Delayed T cell recovery and restricted T cell receptor (TCR) diversity after allogeneic hematopoietic stem cell transpla",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.0,
+            "ndcg_dense": 0.0,
+            "qid": "1316",
+            "query": "Transferred UCB T cells acquire a memory-like phenotype in recipients.",
+            "top1_snippet": "Immune reconstitution after cord blood transplantation: peculiarities, clinical implications and management strategies. Umbilical cord blood (UCB) is now widely used as an alternative hematopoietic stem cell source for p"
+          },
+          {
+            "gold_snippet": "Somatic sex identity is cell-autonomous in the chicken In the mammalian model of sex determination, embryos are considered to be sexually indifferent until the transient action of a sex-determining gene initiates gonadal",
+            "ndcg_best": 0.0,
+            "ndcg_bm25": 0.5,
+            "ndcg_dense": 0.0,
+            "qid": "303",
+            "query": "DMRT1 is a sex-determining gene that is epigenetically regulated by the MHM region.",
+            "top1_snippet": "Transcripts of the MHM region on the chicken Z chromosome accumulate as non-coding RNA in the nucleus of female cells adjacent to the DMRT1 locus The male hypermethylated (MHM) region, located near the middle of the shor"
+          }
+        ]
+      },
+      "labelled": 25,
+      "share": {
+        "label-provenance": 52.0,
+        "near-miss-entity": 8.0,
+        "negation-or-polarity": 8.0,
+        "rare-term-anchor": 20.0,
+        "unjudged-equivalent": 12.0
+      },
+      "total_queries": 300,
+      "total_zero_ndcg": 30
+    }
+  },
+  "definitions": {
+    "label-provenance": "The judged document is the source the query was derived from, not the document that best matches what the query says. scifact claims were written from a specific cited paper, and nfcorpus queries are video topics whose qrels are that video's citation list. The retriever returns a topically better document and scores zero.",
+    "near-miss-entity": "Right topic, wrong specific entity: a sibling gene, a neighbouring formula, an adjacent concept.",
+    "negation-or-polarity": "The claim is negated or its direction reversed. The embedding is nearly unchanged, so opposite claims retrieve the same documents.",
+    "rare-term-anchor": "A rare named entity, drug, gene, study name, ticker or acronym that exact lexical matching pins and an embedding blurs into its neighbourhood. This is where BM25 beats dense.",
+    "underspecified-query": "One or two words with no context to disambiguate intent, so the retriever picks a reading the labels do not share.",
+    "unjudged-equivalent": "The corpus contains many acceptable answers and only a couple are judged. The top hit answers the question, but was never in the pool. Characteristic of fiqa, a community QA corpus with about 2.6 judged positives per query over 57,638 documents."
+  },
+  "modes": [
+    "label-provenance",
+    "unjudged-equivalent",
+    "rare-term-anchor",
+    "negation-or-polarity",
+    "underspecified-query",
+    "near-miss-entity"
+  ],
+  "sampling": "Labels were assigned by hand after reading output/error_candidates.json. The sample per dataset is the first 20 queries in the zero nDCG@10 bucket plus the first 10 in the BM25 beats dense bucket, both in the deterministic order the dump writes them (query id ascending, and difference descending, respectively). Queries appearing in both buckets are labelled once. This is a sample of the failures, not a census: shares below are shares of the labelled sample, and the sample deliberately oversamples the BM25 wins relative to their frequency."
+}

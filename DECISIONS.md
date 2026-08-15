@@ -10,9 +10,10 @@ different enough that no single system wins all three: scifact is short
 scientific claims against abstracts with about one relevant document per query,
 nfcorpus is medical with roughly 38 graded relevant documents per query, fiqa is
 long tail financial questions over a corpus more than ten times larger. Left
-trec-covid out: 171k documents against 50 queries buys a lot of runtime for very
-little statistical power, and 50 queries makes the bootstrap intervals wide
-enough to swamp any conclusion.
+trec-covid out: it pairs a much larger corpus with only 50 test queries, which
+buys a lot of runtime for very little statistical power, and 50 queries makes
+the bootstrap intervals wide enough to swamp any conclusion. That corpus was
+never downloaded here, so its size is not a number this repo can verify.
 
 **No aggregate score across datasets.** The per dataset numbers disagree with
 each other, and that disagreement is the finding. Averaging it away would hide

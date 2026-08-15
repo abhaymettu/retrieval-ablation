@@ -1,0 +1,301 @@
+{
+  "cost": {
+    "instance": "AWS g5.xlarge on demand, us-east-1",
+    "note": "serial serving, one query at a time, no batching, no caching, 100 percent utilisation. Latency assumed to transfer from the local machine unchanged, which is the weakest link in this number.",
+    "usd_per_hour": 1.006
+  },
+  "datasets": {
+    "fiqa": {
+      "stages_ms": {
+        "bm25_query": {
+          "p50": 123.37,
+          "p95": 216.49
+        },
+        "ce@10": {
+          "p50": 67.91,
+          "p95": 183.34
+        },
+        "ce@100": {
+          "p50": 383.74,
+          "p95": 413.32
+        },
+        "ce@50": {
+          "p50": 225.15,
+          "p95": 489.81
+        },
+        "encode_bge": {
+          "p50": 11.39,
+          "p95": 61.62
+        },
+        "encode_minilm": {
+          "p50": 5.69,
+          "p95": 28.59
+        },
+        "fuse": {
+          "p50": 0.46,
+          "p95": 0.48
+        },
+        "search_bge": {
+          "p50": 2.29,
+          "p95": 4.54
+        },
+        "search_minilm": {
+          "p50": 1.46,
+          "p95": 2.33
+        }
+      },
+      "systems_ms": {
+        "bm25": {
+          "mean": 123.85,
+          "p50": 123.37,
+          "p95": 216.49,
+          "usd_per_1k_queries": 0.0346
+        },
+        "bm25+ce@100": {
+          "mean": 511.64,
+          "p50": 509.85,
+          "p95": 597.5,
+          "usd_per_1k_queries": 0.143
+        },
+        "dense-bge": {
+          "mean": 23.78,
+          "p50": 13.74,
+          "p95": 66.19,
+          "usd_per_1k_queries": 0.0066
+        },
+        "dense-minilm": {
+          "mean": 11.53,
+          "p50": 7.15,
+          "p95": 30.18,
+          "usd_per_1k_queries": 0.0032
+        },
+        "hybrid-blend": {
+          "mean": 148.09,
+          "p50": 146.97,
+          "p95": 235.28,
+          "usd_per_1k_queries": 0.0414
+        },
+        "hybrid-blend+ce@10": {
+          "mean": 249.33,
+          "p50": 247.35,
+          "p95": 390.55,
+          "usd_per_1k_queries": 0.0697
+        },
+        "hybrid-blend+ce@100": {
+          "mean": 535.88,
+          "p50": 535.67,
+          "p95": 618.08,
+          "usd_per_1k_queries": 0.1497
+        },
+        "hybrid-blend+ce@50": {
+          "mean": 396.61,
+          "p50": 373.61,
+          "p95": 640.59,
+          "usd_per_1k_queries": 0.1108
+        },
+        "hybrid-rrf": {
+          "mean": 148.09,
+          "p50": 146.97,
+          "p95": 235.28,
+          "usd_per_1k_queries": 0.0414
+        }
+      }
+    },
+    "nfcorpus": {
+      "stages_ms": {
+        "bm25_query": {
+          "p50": 0.88,
+          "p95": 2.78
+        },
+        "ce@10": {
+          "p50": 49.97,
+          "p95": 112.1
+        },
+        "ce@100": {
+          "p50": 462.81,
+          "p95": 846.72
+        },
+        "ce@50": {
+          "p50": 239.88,
+          "p95": 464.98
+        },
+        "encode_bge": {
+          "p50": 11.48,
+          "p95": 46.8
+        },
+        "encode_minilm": {
+          "p50": 5.38,
+          "p95": 17.82
+        },
+        "fuse": {
+          "p50": 0.43,
+          "p95": 0.46
+        },
+        "search_bge": {
+          "p50": 0.27,
+          "p95": 0.33
+        },
+        "search_minilm": {
+          "p50": 0.17,
+          "p95": 0.24
+        }
+      },
+      "systems_ms": {
+        "bm25": {
+          "mean": 1.24,
+          "p50": 0.88,
+          "p95": 2.78,
+          "usd_per_1k_queries": 0.0003
+        },
+        "bm25+ce@100": {
+          "mean": 551.47,
+          "p50": 463.94,
+          "p95": 847.47,
+          "usd_per_1k_queries": 0.1541
+        },
+        "dense-bge": {
+          "mean": 19.73,
+          "p50": 11.76,
+          "p95": 47.01,
+          "usd_per_1k_queries": 0.0055
+        },
+        "dense-minilm": {
+          "mean": 8.21,
+          "p50": 5.56,
+          "p95": 17.96,
+          "usd_per_1k_queries": 0.0023
+        },
+        "hybrid-blend": {
+          "mean": 21.4,
+          "p50": 13.1,
+          "p95": 48.99,
+          "usd_per_1k_queries": 0.006
+        },
+        "hybrid-blend+ce@10": {
+          "mean": 76.89,
+          "p50": 63.65,
+          "p95": 125.77,
+          "usd_per_1k_queries": 0.0215
+        },
+        "hybrid-blend+ce@100": {
+          "mean": 571.63,
+          "p50": 492.96,
+          "p95": 863.36,
+          "usd_per_1k_queries": 0.1597
+        },
+        "hybrid-blend+ce@50": {
+          "mean": 308.88,
+          "p50": 269.84,
+          "p95": 497.69,
+          "usd_per_1k_queries": 0.0863
+        },
+        "hybrid-rrf": {
+          "mean": 21.4,
+          "p50": 13.1,
+          "p95": 48.99,
+          "usd_per_1k_queries": 0.006
+        }
+      }
+    },
+    "scifact": {
+      "stages_ms": {
+        "bm25_query": {
+          "p50": 10.16,
+          "p95": 19.62
+        },
+        "ce@10": {
+          "p50": 159.44,
+          "p95": 191.98
+        },
+        "ce@100": {
+          "p50": 623.71,
+          "p95": 1281.04
+        },
+        "ce@50": {
+          "p50": 267.07,
+          "p95": 618.77
+        },
+        "encode_bge": {
+          "p50": 15.59,
+          "p95": 68.15
+        },
+        "encode_minilm": {
+          "p50": 8.14,
+          "p95": 25.53
+        },
+        "fuse": {
+          "p50": 1.0,
+          "p95": 1.06
+        },
+        "search_bge": {
+          "p50": 0.41,
+          "p95": 0.52
+        },
+        "search_minilm": {
+          "p50": 0.33,
+          "p95": 0.42
+        }
+      },
+      "systems_ms": {
+        "bm25": {
+          "mean": 11.17,
+          "p50": 10.16,
+          "p95": 19.62,
+          "usd_per_1k_queries": 0.0031
+        },
+        "bm25+ce@100": {
+          "mean": 776.48,
+          "p50": 635.62,
+          "p95": 1292.13,
+          "usd_per_1k_queries": 0.217
+        },
+        "dense-bge": {
+          "mean": 20.91,
+          "p50": 15.99,
+          "p95": 68.54,
+          "usd_per_1k_queries": 0.0058
+        },
+        "dense-minilm": {
+          "mean": 11.16,
+          "p50": 8.52,
+          "p95": 25.87,
+          "usd_per_1k_queries": 0.0031
+        },
+        "hybrid-blend": {
+          "mean": 33.08,
+          "p50": 27.44,
+          "p95": 78.97,
+          "usd_per_1k_queries": 0.0092
+        },
+        "hybrid-blend+ce@10": {
+          "mean": 161.23,
+          "p50": 187.12,
+          "p95": 243.91,
+          "usd_per_1k_queries": 0.0451
+        },
+        "hybrid-blend+ce@100": {
+          "mean": 798.39,
+          "p50": 665.65,
+          "p95": 1309.49,
+          "usd_per_1k_queries": 0.2231
+        },
+        "hybrid-blend+ce@50": {
+          "mean": 406.51,
+          "p50": 320.97,
+          "p95": 648.4,
+          "usd_per_1k_queries": 0.1136
+        },
+        "hybrid-rrf": {
+          "mean": 33.08,
+          "p50": 27.44,
+          "p95": 78.97,
+          "usd_per_1k_queries": 0.0092
+        }
+      }
+    }
+  },
+  "device": "mps",
+  "machine": "Apple M4 Pro (12 core, 24 GB unified memory), macOS 15.5, torch 2.13 MPS backend",
+  "queries_timed": 200,
+  "warmup_queries": 20
+}

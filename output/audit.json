@@ -1,0 +1,118 @@
+[
+  {
+    "corpus_docs": 5183,
+    "dataset": "scifact",
+    "dev_test_query_overlap": 0,
+    "doc_words_median": 204.0,
+    "doc_words_p95": 356.0,
+    "empty_docs": 0,
+    "splits": {
+      "dev": {
+        "grades": {
+          "1": 919
+        },
+        "judged_per_query_mean": 1.14,
+        "label_density_pct": 0.021917,
+        "official_split": "train",
+        "positives_per_query_mean": 1.14,
+        "qrel_docs_missing_from_corpus": 0,
+        "queries": 809,
+        "queries_with_no_positive": 0,
+        "queries_with_qrels": 809,
+        "query_words_median": 12.0
+      },
+      "test": {
+        "grades": {
+          "1": 339
+        },
+        "judged_per_query_mean": 1.13,
+        "label_density_pct": 0.021802,
+        "official_split": "test",
+        "positives_per_query_mean": 1.13,
+        "qrel_docs_missing_from_corpus": 0,
+        "queries": 300,
+        "queries_with_no_positive": 0,
+        "queries_with_qrels": 300,
+        "query_words_median": 12.0
+      }
+    }
+  },
+  {
+    "corpus_docs": 3633,
+    "dataset": "nfcorpus",
+    "dev_test_query_overlap": 0,
+    "doc_words_median": 237.0,
+    "doc_words_p95": 348.0,
+    "empty_docs": 0,
+    "splits": {
+      "dev": {
+        "grades": {
+          "1": 10864,
+          "2": 521
+        },
+        "judged_per_query_mean": 35.14,
+        "label_density_pct": 0.967214,
+        "official_split": "dev",
+        "positives_per_query_mean": 35.14,
+        "qrel_docs_missing_from_corpus": 0,
+        "queries": 324,
+        "queries_with_no_positive": 0,
+        "queries_with_qrels": 324,
+        "query_words_median": 2.0
+      },
+      "test": {
+        "grades": {
+          "1": 11758,
+          "2": 576
+        },
+        "judged_per_query_mean": 38.19,
+        "label_density_pct": 1.051081,
+        "official_split": "test",
+        "positives_per_query_mean": 38.19,
+        "qrel_docs_missing_from_corpus": 0,
+        "queries": 323,
+        "queries_with_no_positive": 0,
+        "queries_with_qrels": 323,
+        "query_words_median": 2.0
+      }
+    }
+  },
+  {
+    "corpus_docs": 57638,
+    "dataset": "fiqa",
+    "dev_test_query_overlap": 0,
+    "doc_words_median": 90.0,
+    "doc_words_p95": 368.0,
+    "empty_docs": 38,
+    "splits": {
+      "dev": {
+        "grades": {
+          "1": 1238
+        },
+        "judged_per_query_mean": 2.48,
+        "label_density_pct": 0.004296,
+        "official_split": "dev",
+        "positives_per_query_mean": 2.48,
+        "qrel_docs_missing_from_corpus": 0,
+        "queries": 500,
+        "queries_with_no_positive": 0,
+        "queries_with_qrels": 500,
+        "query_words_median": 10.0
+      },
+      "test": {
+        "grades": {
+          "1": 1706
+        },
+        "judged_per_query_mean": 2.63,
+        "label_density_pct": 0.004568,
+        "official_split": "test",
+        "positives_per_query_mean": 2.63,
+        "qrel_docs_missing_from_corpus": 0,
+        "queries": 648,
+        "queries_with_no_positive": 0,
+        "queries_with_qrels": 648,
+        "query_words_median": 10.0
+      }
+    }
+  }
+]

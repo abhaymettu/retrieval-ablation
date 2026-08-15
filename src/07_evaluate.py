@@ -63,9 +63,21 @@ def evaluate(dataset, split, tuning):
         if k == RERANK_DEPTH:
             ceilings[name] = systems[first_stage]["recall@100"]["mean"]
 
+    # The other ceiling: with only 100 slots, a query with more than 100
+    # relevant documents cannot reach Recall@100 even with perfect retrieval.
+    # This separates "the cutoff is too small" from "the retriever missed them",
+    # which are very different problems with very different fixes.
+    per_query_cap = [min(100, p) / p for p in
+                     (sum(1 for r in v.values() if r > 0) for v in qrels.values()) if p]
+    label_cap = float(sum(per_query_cap) / len(per_query_cap))
+
     return {"dataset": dataset, "split": split, "queries": len(qrels),
             "systems": systems, "comparisons": comparisons,
-            "recall_ceiling_at_k100": ceilings}
+            "recall_ceiling_at_k100": ceilings,
+            "recall100_cap_from_cutoff": round(label_cap, 4),
+            "queries_with_over_100_positives": sum(
+                1 for v in qrels.values()
+                if sum(1 for r in v.values() if r > 0) > 100)}
 
 
 if __name__ == "__main__":
