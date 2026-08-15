@@ -105,6 +105,9 @@ def hero(results, latency):
                 linewidth=2, linestyle="--", zorder=1)
 
         ax.set_xscale("log")
+        # Minor tick labels collide into an unreadable smear when an axis spans
+        # only a decade or two, which is exactly the range here.
+        ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
         ax.set_xlabel("p95 latency per query (ms, log scale)", fontsize=9, color=INK_2)
         ax.set_title(f"{ds}  ({results[ds]['test']['queries']} test queries)",
                      fontsize=11, color=INK, loc="left")
