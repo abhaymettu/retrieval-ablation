@@ -1,0 +1,13 @@
+# Pinned. Built and run on Python 3.12.13, macOS 15 arm64.
+huggingface-hub==1.27.0
+matplotlib==3.11.1
+numpy==2.5.2
+rank-bm25==0.2.2
+requests==2.34.2
+safetensors==0.8.0
+scipy==1.18.0
+sentence-transformers==5.7.0
+tokenizers==0.22.2
+torch==2.13.0
+tqdm==4.70.0
+transformers==5.15.0
