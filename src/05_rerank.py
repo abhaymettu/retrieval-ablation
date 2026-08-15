@@ -12,7 +12,7 @@ import torch
 from sentence_transformers import CrossEncoder
 
 from config import CACHE, DATASETS, EMBED_MODELS, OUTPUT, RERANK_DEPTH, RERANKER
-from lib import load_corpus, load_run, load_split, save_json
+from lib import load_corpus, load_json, load_run, load_split, save_json
 
 FIRST_STAGES = ["bm25", "hybrid-rrf", "hybrid-blend"] + [f"dense-{m}" for m in EMBED_MODELS]
 
@@ -59,9 +59,14 @@ def run(dataset, split, model, stats):
 if __name__ == "__main__":
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     model = CrossEncoder(RERANKER["hf"], device=device, max_length=RERANKER["max_seq"])
-    stats = []
+    # Merged rather than overwritten, so a resumed run keeps the throughput
+    # numbers from the passes it skipped.
+    path = OUTPUT / "rerank_throughput.json"
+    stats = load_json(path) if path.exists() else []
+    before = len(stats)
     for ds in DATASETS:
         for split in ["dev", "test"]:
             run(ds, split, model, stats)
-    if stats:
-        save_json(stats, OUTPUT / "rerank_throughput.json")
+    if len(stats) > before:
+        keep = {(s["dataset"], s["split"]): s for s in stats}
+        save_json(sorted(keep.values(), key=lambda s: (s["dataset"], s["split"])), path)

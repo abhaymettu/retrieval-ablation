@@ -36,6 +36,28 @@ the latency numbers the way there is on the quality numbers. Percentiles are
 over queries within one run, which captures query to query variation and not
 run to run variation.
 
+Two measurement artifacts were found and fixed while building this, which is
+the reason to distrust any latency number that was not chased at least this
+far. Both would have shipped wrong numbers:
+
+1. **GPU warmup.** With a per stage warmup of 20 queries, the query encoder
+   timed at 52 ms on the first dataset measured and 11 ms on the last, in
+   measurement order rather than in any order the data justified. The models
+   are now driven hard before any clock starts.
+2. **Timing one model at a time.** Looping model by model handed whichever ran
+   first the per dataset cold start, which reported the 22M parameter encoder
+   as *slower* than the 110M one. Both models are now timed inside one loop
+   over queries, alternating, which recovers the expected ordering.
+
+A third artifact was found and **not** fixed, because it cannot be: on fiqa,
+query encoding measures about 2.6x slower when brute force search over the
+177 MB embedding matrix is interleaved with it than when it runs alone, since
+the two compete for memory bandwidth on unified memory. Both numbers are
+recorded, as `encode_*` and `encode_*_isolated`. The composed per system
+totals are unaffected, because a real query pays for both stages either way.
+Only the stage by stage attribution is affected: on fiqa some of what the
+table charges to encoding properly belongs to search.
+
 ## Dollars are a model, not a measurement
 
 Nothing in this repo was ever billed. Latency is measured on local hardware and

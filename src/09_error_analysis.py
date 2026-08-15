@@ -77,7 +77,8 @@ def candidates(dataset, tuning, results):
 def summarise(dumps):
     """Join hand labels onto the dumped queries."""
     labels = load_json(LABELS)
-    out = {"modes": labels["modes"], "datasets": {}}
+    out = {"modes": labels["modes"], "definitions": labels["mode_definitions"],
+           "sampling": labels["sampling"], "datasets": {}}
     for ds, dump in dumps.items():
         assigned = labels["labels"].get(ds, {})
         by_qid = {r["qid"]: r for r in dump["all_rows"]}

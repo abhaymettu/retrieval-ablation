@@ -77,17 +77,22 @@ def results_table(results, latency, ds):
         rows.append([f"`{name}`", ci(m["ndcg@10"]), ci(m["recall@100"]),
                      ci(m["mrr@10"]), ci(m["success@1"]),
                      f"{lat[name]['p50']:.0f}", f"{lat[name]['p95']:.0f}",
-                     f"${lat[name]['usd_per_1k_queries']:.3f}"])
+                     f"{lat[name]['usd_per_1k_queries']:.4f}"])
     return md_table(["system", "nDCG@10 [95% CI]", "Recall@100 [95% CI]",
                      "MRR@10 [95% CI]", "Success@1 [95% CI]",
-                     "p50 ms", "p95 ms", "$/1k queries"], rows)
+                     "p50 ms", "p95 ms", "USD/1k queries"], rows)
 
 
 def comparison_table(results, ds, pairs):
     by_key = {(c["a"], c["b"], c["metric"]): c
               for c in results[ds]["test"]["comparisons"]}
-    rows = []
+    rows, seen = [], set()
     for a, b in pairs:
+        # The pair list is built from per dataset choices, so the same
+        # comparison can be named twice under two different descriptions.
+        if a == b or (a, b) in seen:
+            continue
+        seen.add((a, b))
         c = by_key.get((a, b, "ndcg@10"))
         flip = False
         if c is None:
@@ -165,7 +170,7 @@ def examples_block(failures, ds, per_mode=1):
     for mode in failures["modes"]:
         for ex in d["examples"].get(mode, [])[:per_mode]:
             out.append(
-                f"- **{mode}** — `{ex['qid']}` \"{ex['query'].strip()}\"  \n"
+                f"- **{mode}**, `{ex['qid']}`: \"{ex['query'].strip()}\"  \n"
                 f"  nDCG@10: best stack {ex['ndcg_best']:.3f}, "
                 f"BM25 {ex['ndcg_bm25']:.3f}, dense {ex['ndcg_dense']:.3f}  \n"
                 f"  gold: \"{ex['gold_snippet'].strip()[:180]}...\"  \n"
@@ -192,6 +197,11 @@ def build_context():
                   if c["metric"] == "ndcg@10"}
 
         def diff(a, b):
+            # The best system can be its own first stage, which is exactly what
+            # happens when the reranker never earns its place.
+            if a == b:
+                return {"diff": 0.0, "ci_lo": 0.0, "ci_hi": 0.0, "p": 1.0,
+                        "distinguishable": False}
             c = cmp_by.get((a, b))
             if c:
                 return c
@@ -226,6 +236,22 @@ def build_context():
             "recall_ceiling": results[ds]["test"]["recall_ceiling_at_k100"],
             "first_stage_recall100": sysres[best_fs]["recall@100"]["mean"],
             "bm25_recall100": sysres["bm25"]["recall@100"]["mean"],
+            "ce10": diff(best, f"{best_fs}+ce@10"),
+            "ce100": diff(best, f"{best_fs}+ce@100"),
+            "ce10_p95": lat[f"{best_fs}+ce@10"]["p95"],
+            "ce100_p95": lat[f"{best_fs}+ce@100"]["p95"],
+            "ce10_p95_ratio": round(lat[f"{best_fs}+ce@10"]["p95"] / lat[best]["p95"], 1),
+            "ce100_p95_ratio": round(lat[f"{best_fs}+ce@100"]["p95"] / lat[best]["p95"], 1),
+            "ce100_usd": lat[f"{best_fs}+ce@100"]["usd_per_1k_queries"],
+            "ce100_usd_ratio": round(lat[f"{best_fs}+ce@100"]["usd_per_1k_queries"]
+                                     / lat[best]["usd_per_1k_queries"], 1),
+            "bm25ce100_vs_bm25": diff("bm25+ce@100", "bm25"),
+            "rrf_gap": diff("hybrid-blend", "hybrid-rrf"),
+            "bge_vs_minilm": diff("dense-bge", "dense-minilm"),
+            "minilm_ndcg": sysres["dense-minilm"]["ndcg@10"]["mean"],
+            "minilm_p95": lat["dense-minilm"]["p95"],
+            "minilm_usd": lat["dense-minilm"]["usd_per_1k_queries"],
+            "bge_ndcg": sysres["dense-bge"]["ndcg@10"]["mean"],
             "queries": results[ds]["test"]["queries"],
             "zero_ndcg": failures["datasets"][ds]["total_zero_ndcg"],
             "zero_ndcg_pct": round(100 * failures["datasets"][ds]["total_zero_ndcg"]
@@ -254,11 +280,14 @@ def build_context():
             **{f"comparisons_{ds}": comparison_table(
                 results, ds,
                 [(calc[ds]["best_system"], "bm25"),
-                 (calc[ds]["best_system"], calc[ds]["best_first_stage"]),
-                 ("hybrid-blend", "bm25"),
+                 ("hybrid-blend", "dense-bge"),
                  ("hybrid-blend", "hybrid-rrf"),
                  ("dense-bge", "dense-minilm"),
                  ("dense-bge", "bm25"),
+                 (calc[ds]["best_first_stage"],
+                  f"{calc[ds]['best_first_stage']}+ce@10"),
+                 (calc[ds]["best_first_stage"],
+                  f"{calc[ds]['best_first_stage']}+ce@100"),
                  (f"{calc[ds]['best_first_stage']}+ce@100",
                   f"{calc[ds]['best_first_stage']}+ce@10"),
                  ("bm25+ce@100", "bm25")]) for ds in DATASETS},
