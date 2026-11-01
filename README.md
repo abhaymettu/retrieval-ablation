@@ -1,13 +1,17 @@
 # retrieval-ablation
 
-**On fiqa, blending BM25 with a bge-base bi-encoder reaches nDCG@10 of
+**What is each layer of a retrieval stack actually worth? This takes the usual pipeline apart on three BEIR datasets
+(BM25, a dense bi-encoder, a hybrid of the two, then a cross encoder reranker) and prices every layer in quality,
+latency and cost. The reranker that usually goes on last made the ranking worse on all three.**
+
+On fiqa, blending BM25 with a bge-base bi-encoder reaches nDCG@10 of
 0.418, up 0.204 points on BM25
 (95% CI [+0.182, +0.227]),
 at 1.1x the p95 latency and
 0.0414 USD per 1000 queries. Adding a cross encoder over the
 top 100 does not buy a single point on any of the three datasets: it makes the
 ranking measurably worse on all three, at 2.6x the
-p95 latency and 3.6x the cost on fiqa.** The layer
+p95 latency and 3.6x the cost on fiqa. The layer
 everybody adds last is the layer that should not be added at all here, and the
 reason is visible in Recall@100: the first stage already returns
 0.739 of the relevant documents on fiqa and only
